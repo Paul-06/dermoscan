@@ -1,6 +1,7 @@
 import 'package:dermoscan/src/constants/image_strings.dart';
 import 'package:dermoscan/src/constants/sizes.dart';
 import 'package:dermoscan/src/constants/text_strings.dart';
+import 'package:dermoscan/src/features/authentication/views/login/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -10,7 +11,7 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     return Scaffold(
-        body: Container(
+      body: Container(
       padding: const EdgeInsets.all(dDefaultSize),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -25,6 +26,9 @@ class WelcomeScreen extends StatelessWidget {
                 style: Theme.of(context).textTheme.headlineSmall,
                 textAlign: TextAlign.center,
               ),
+              const SizedBox(
+                height: 10.0,
+              ),
               Text(
                 dWelcomeDescription,
                 style: Theme.of(context).textTheme.bodyLarge,
@@ -36,7 +40,12 @@ class WelcomeScreen extends StatelessWidget {
             children: [
               Expanded(
                   child: OutlinedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const LoginScreen())
+                          );
+                      },
                       child: Text(dLogin.toUpperCase()))),
               const SizedBox(
                 width: 10.0,
