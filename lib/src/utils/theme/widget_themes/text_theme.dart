@@ -9,7 +9,8 @@ class DTextTheme {
       fontWeight: FontWeight.w700
     ),
     headlineLarge: GoogleFonts.montserrat(
-      color: caribbean700
+      color: caribbean700,
+      fontWeight: FontWeight.w500
     ),
     bodyLarge: GoogleFonts.poppins(
       color: Colors.black54
@@ -21,7 +22,8 @@ class DTextTheme {
       fontWeight: FontWeight.w700
     ),
     headlineLarge: GoogleFonts.montserrat(
-      color: caribbean300
+      color: caribbean300,
+      fontWeight: FontWeight.w500
     ),
     bodyLarge: GoogleFonts.poppins(
       color: Colors.white60

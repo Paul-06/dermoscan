@@ -18,3 +18,8 @@ const dLoginTitle = "Bienvenid@";
 const dLoginDescription =
     "Tu piel, tu responsabilidad. ¡Inicia sesión y protégela!";
 const dDontHaveAnAccount = "¿No tienes una cuenta? ";
+
+// Sign Up Screen
+const dSignUpTitle = "¡Cuida tu piel con nuestra app!";
+const dSignUpDescripction = "Regístrate y descubre cómo mantener tu piel sana y radiante.";
+const dAlreadyHaveAnAccount = "¿Ya tienes una cuenta?";
