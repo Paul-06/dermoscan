@@ -1,9 +1,9 @@
-import 'package:dermoscan/src/features/authentication/views/signup/signup_screen.dart';
+import 'package:dermoscan/src/constants/text_strings.dart';
+import 'package:dermoscan/src/features/authentication/views/login/login_screen.dart';
 import 'package:flutter/material.dart';
-import '../../../../constants/text_strings.dart';
 
-class LoginFooterWidget extends StatelessWidget {
-  const LoginFooterWidget({
+class SignUpFooterWidget extends StatelessWidget {
+  const SignUpFooterWidget({
     Key? key,
   }) : super(key: key);
 
@@ -19,16 +19,16 @@ class LoginFooterWidget extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SignUpScreen()
+                    builder: (context) => const LoginScreen()
                   )
                 );
               },
               child: Text.rich(TextSpan(
-                  text: dDontHaveAnAccount,
+                  text: dAlreadyHaveAnAccount,
                   style: Theme.of(context).textTheme.bodyLarge,
                   children: const [
                     TextSpan(
-                        text: dSignUp, style: TextStyle(color: Colors.blue))
+                        text: dLogin, style: TextStyle(color: Colors.blue))
                   ])))
         ],
       ),

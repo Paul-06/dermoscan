@@ -2,6 +2,7 @@ import 'package:dermoscan/src/constants/image_strings.dart';
 import 'package:dermoscan/src/constants/sizes.dart';
 import 'package:dermoscan/src/constants/text_strings.dart';
 import 'package:dermoscan/src/features/authentication/views/login/login_screen.dart';
+import 'package:dermoscan/src/features/authentication/views/signup/signup_screen.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -44,7 +45,7 @@ class WelcomeScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => const LoginScreen())
-                          );
+                        );
                       },
                       child: Text(dLogin.toUpperCase()))),
               const SizedBox(
@@ -52,7 +53,12 @@ class WelcomeScreen extends StatelessWidget {
               ), 
               Expanded(
                   child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const SignUpScreen())
+                        );
+                      },
                       child: Text(dSignUp.toUpperCase()))),
             ],
           )
