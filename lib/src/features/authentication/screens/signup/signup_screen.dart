@@ -2,8 +2,8 @@ import 'package:dermoscan/src/common_widgets/form_header_widget.dart';
 import 'package:dermoscan/src/constants/image_strings.dart';
 import 'package:dermoscan/src/constants/sizes.dart';
 import 'package:dermoscan/src/constants/text_strings.dart';
-import 'package:dermoscan/src/features/authentication/views/signup/signup_footer_widget.dart';
-import 'package:dermoscan/src/features/authentication/views/signup/signup_form_widget.dart';
+import 'package:dermoscan/src/features/authentication/screens/signup/signup_footer_widget.dart';
+import 'package:dermoscan/src/features/authentication/screens/signup/signup_form_widget.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatelessWidget {

@@ -1,8 +1,8 @@
 import 'package:dermoscan/src/constants/image_strings.dart';
 import 'package:dermoscan/src/constants/sizes.dart';
 import 'package:dermoscan/src/constants/text_strings.dart';
-import 'package:dermoscan/src/features/authentication/views/login/login_screen.dart';
-import 'package:dermoscan/src/features/authentication/views/signup/signup_screen.dart';
+import 'package:dermoscan/src/features/authentication/screens/login/login_screen.dart';
+import 'package:dermoscan/src/features/authentication/screens/signup/signup_screen.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatelessWidget {

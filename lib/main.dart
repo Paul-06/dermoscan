@@ -1,4 +1,4 @@
-import 'package:dermoscan/src/features/authentication/views/welcome/welcome_screen.dart';
+import 'package:dermoscan/src/features/authentication/screens/welcome/welcome_screen.dart';
 import 'package:dermoscan/src/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
 
