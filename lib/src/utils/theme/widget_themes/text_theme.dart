@@ -14,6 +14,9 @@ class DTextTheme {
     ),
     bodyLarge: GoogleFonts.poppins(
       color: Colors.black54
+    ),
+    bodyMedium: GoogleFonts.poppins(
+      color: dWhiteColor
     )
   );
   static TextTheme darkTextTheme = TextTheme(
@@ -27,6 +30,9 @@ class DTextTheme {
     ),
     bodyLarge: GoogleFonts.poppins(
       color: Colors.white60
+    ),
+    bodyMedium: GoogleFonts.poppins(
+      color: caribbean950
     )
   );
 }

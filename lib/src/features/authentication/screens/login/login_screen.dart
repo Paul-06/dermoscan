@@ -1,7 +1,9 @@
+import 'package:dermoscan/src/common_widgets/form_header_widget.dart';
+import 'package:dermoscan/src/constants/image_strings.dart';
 import 'package:dermoscan/src/constants/sizes.dart';
+import 'package:dermoscan/src/constants/text_strings.dart';
 import 'package:dermoscan/src/features/authentication/screens/login/login_footer_widget.dart';
 import 'package:dermoscan/src/features/authentication/screens/login/login_form_widget.dart';
-import 'package:dermoscan/src/features/authentication/screens/login/login_header_widget.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -9,18 +11,21 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.all(dDefaultSize),
-            child: Column(
+            child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                LoginHeaderWidget(size: size),
-                const LoginForm(),
-                const LoginFooterWidget()
+                FormHeaderWidget(
+                  image: dWelcomeStringImage,
+                  title: dLoginTitle,
+                  description: dLoginDescription
+                ),
+                LoginForm(),
+                LoginFooterWidget()
               ],
             ),
           ),

@@ -1,5 +1,6 @@
 import 'package:dermoscan/src/constants/sizes.dart';
 import 'package:dermoscan/src/constants/text_strings.dart';
+import 'package:dermoscan/src/features/core/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginForm extends StatelessWidget {
@@ -38,7 +39,14 @@ class LoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                  onPressed: () {}, child: Text(dLogin.toUpperCase())),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const HomeScreen()
+                      )
+                    );
+                  }, child: Text(dLogin.toUpperCase())),
             )
           ],
         ),
