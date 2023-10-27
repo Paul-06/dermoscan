@@ -1,4 +1,3 @@
-import 'package:dermoscan/src/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 /* -- Light & Dark Bottom App Bar Themes -- */
@@ -8,14 +7,14 @@ class DBottomAppBarTheme {
   /* -- Light Theme -- */
   static BottomAppBarTheme lightBottomBottomAppBarTheme = 
   const BottomAppBarTheme(
-    color: primary,
+    color: Colors.white,
     shape: CircularNotchedRectangle()
   );
 
   /* -- Dark Theme -- */
   static BottomAppBarTheme darkBottomBottomAppBarTheme = 
   const BottomAppBarTheme(
-    color: caribbean400,
+    color: Color(0xFF121212),
     shape: CircularNotchedRectangle()
   );
 }

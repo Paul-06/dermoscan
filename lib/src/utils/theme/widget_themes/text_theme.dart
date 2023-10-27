@@ -16,7 +16,7 @@ class DTextTheme {
       color: Colors.black54
     ),
     bodyMedium: GoogleFonts.poppins(
-      color: dWhiteColor
+      color: primary
     )
   );
   static TextTheme darkTextTheme = TextTheme(

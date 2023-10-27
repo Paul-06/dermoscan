@@ -15,10 +15,18 @@ const dWelcomeDescription =
 
 // Login Screen
 const dLoginTitle = "Bienvenid@";
-const dLoginDescription = "Tu piel, tu responsabilidad. ¡Inicia sesión y protégela!";
+const dLoginDescription =
+    "Tu piel, tu responsabilidad. ¡Inicia sesión y protégela!";
 const dDontHaveAnAccount = "¿No tienes una cuenta? ";
 
 // Sign Up Screen
 const dSignUpTitle = "¡Cuídate!";
-const dSignUpDescripction = "Regístrate y descubre cómo mantener tu piel sana y radiante.";
+const dSignUpDescripction =
+    "Regístrate y descubre cómo mantener tu piel sana y radiante.";
 const dAlreadyHaveAnAccount = "¿Ya tienes una cuenta? ";
+
+// Bottom App Bar
+const dHome = "Home";
+const dResults = "Results";
+const dInfo = "Info";
+const dSettings = "Settings";

@@ -18,7 +18,7 @@ class DAppTheme {
       inputDecorationTheme: DTextFormFieldTheme.lightInputDecorationTheme, // color de input form
       floatingActionButtonTheme: DFloatingActionButton.lightFloatingActionButtonTheme, // color de boton flotante
       bottomAppBarTheme: DBottomAppBarTheme.lightBottomBottomAppBarTheme, // color del tabbed menu
-      iconTheme: DIconTheme.lightIconTheme // color de los iconos
+      // iconTheme: DIconTheme.lightIconTheme // color de los iconos
     );
 
   static ThemeData darkTheme = ThemeData(
@@ -29,6 +29,6 @@ class DAppTheme {
       inputDecorationTheme: DTextFormFieldTheme.darkInputDecorationTheme,
       floatingActionButtonTheme: DFloatingActionButton.darkFloatingActionButtonTheme,
       bottomAppBarTheme: DBottomAppBarTheme.darkBottomBottomAppBarTheme,
-      iconTheme: DIconTheme.darkIconTheme
+      // iconTheme: DIconTheme.darkIconTheme
     );
 }
