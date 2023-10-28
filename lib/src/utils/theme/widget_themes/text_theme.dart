@@ -5,18 +5,22 @@ import 'package:google_fonts/google_fonts.dart';
 class DTextTheme {
   static TextTheme lightTextTheme = TextTheme(
     headlineSmall: GoogleFonts.montserrat(
-      color: caribbean700,
+      color: caribbean700, // headlineSmall => 24
       fontWeight: FontWeight.w700
     ),
     headlineLarge: GoogleFonts.montserrat(
-      color: caribbean700,
+      color: caribbean700, // headlineLarge => 32
       fontWeight: FontWeight.w500
     ),
     bodyLarge: GoogleFonts.poppins(
-      color: Colors.black54
+      color: Colors.black54 // bodyLarge => 16
     ),
     bodyMedium: GoogleFonts.poppins(
-      color: primary
+      color: primary // bodyMedium => 14
+    ),
+    titleLarge: GoogleFonts.montserrat(
+      color: dWhiteColor, // titleLarge => 16
+      fontWeight: FontWeight.bold
     )
   );
   static TextTheme darkTextTheme = TextTheme(
@@ -32,7 +36,11 @@ class DTextTheme {
       color: Colors.white60
     ),
     bodyMedium: GoogleFonts.poppins(
-      color: caribbean950
+      color: caribbean400
+    ),
+    titleLarge: GoogleFonts.montserrat(
+        color: caribbean950,
+        fontWeight: FontWeight.bold
     )
   );
 }

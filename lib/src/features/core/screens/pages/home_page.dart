@@ -1,4 +1,4 @@
-import 'package:dermoscan/src/constants/colors.dart';
+import 'package:dermoscan/src/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,7 +12,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Home"), backgroundColor: primary,),
+      appBar: AppBar(
+        title: Text(dHome, style: Theme.of(context).textTheme.titleLarge,),
+        automaticallyImplyLeading: false,
+      ),
       body: const Center(
         child: Text("Home Page", style: TextStyle(fontSize: 40)),
       ),

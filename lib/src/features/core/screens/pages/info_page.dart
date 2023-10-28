@@ -1,4 +1,4 @@
-import 'package:dermoscan/src/constants/colors.dart';
+import 'package:dermoscan/src/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 
 class InfoPage extends StatefulWidget {
@@ -12,7 +12,10 @@ class _InfoPageState extends State<InfoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Home"), backgroundColor: primary,),
+      appBar: AppBar(
+        title: Text(dInfo, style: Theme.of(context).textTheme.titleLarge,),
+        automaticallyImplyLeading: false,
+      ),
       body: const Center(
         child: Text("Info Page", style: TextStyle(fontSize: 40)),
       ),

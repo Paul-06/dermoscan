@@ -1,3 +1,4 @@
+import 'package:dermoscan/src/utils/theme/widget_themes/app_bar_theme.dart';
 import 'package:dermoscan/src/utils/theme/widget_themes/bottom_app_bar_theme.dart';
 import 'package:dermoscan/src/utils/theme/widget_themes/elevated_button_theme.dart';
 import 'package:dermoscan/src/utils/theme/widget_themes/floating_action_button_theme.dart';
@@ -19,6 +20,7 @@ class DAppTheme {
       floatingActionButtonTheme: DFloatingActionButton.lightFloatingActionButtonTheme, // color de boton flotante
       bottomAppBarTheme: DBottomAppBarTheme.lightBottomBottomAppBarTheme, // color del tabbed menu
       // iconTheme: DIconTheme.lightIconTheme // color de los iconos
+      appBarTheme: DAppBarTheme.lightAppBarTheme
     );
 
   static ThemeData darkTheme = ThemeData(
@@ -30,5 +32,6 @@ class DAppTheme {
       floatingActionButtonTheme: DFloatingActionButton.darkFloatingActionButtonTheme,
       bottomAppBarTheme: DBottomAppBarTheme.darkBottomBottomAppBarTheme,
       // iconTheme: DIconTheme.darkIconTheme
+      appBarTheme: DAppBarTheme.darkAppBarTheme
     );
 }

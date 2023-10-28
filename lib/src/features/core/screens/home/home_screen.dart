@@ -1,4 +1,5 @@
 import 'package:dermoscan/src/constants/colors.dart';
+import 'package:dermoscan/src/constants/text_strings.dart';
 import 'package:dermoscan/src/features/core/screens/pages/home_page.dart';
 import 'package:dermoscan/src/features/core/screens/pages/info_page.dart';
 import 'package:dermoscan/src/features/core/screens/pages/results_page.dart';
@@ -61,11 +62,22 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Icon(
                           Icons.home_rounded,
-                          color: currentTab == 0 ? primary : Colors.grey,
+                          color: currentTab == 0
+                              ? (MediaQuery.of(context).platformBrightness ==
+                                      Brightness.light
+                                  ? primary
+                                  : caribbean400)
+                              : Colors.grey,
                         ),
                         Text(
-                          "Home",
-                          style: TextStyle(color: currentTab == 0 ? primary : Colors.grey),
+                          dHome,
+                          style: TextStyle(
+                              color: currentTab == 0
+                              ? (MediaQuery.of(context).platformBrightness ==
+                                      Brightness.light
+                                  ? primary
+                                  : caribbean400)
+                              : Colors.grey),
                         )
                       ],
                     ),
@@ -83,11 +95,22 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Icon(
                           Icons.favorite_rounded,
-                          color: currentTab == 1 ? primary : Colors.grey,
+                          color: currentTab == 1
+                              ? (MediaQuery.of(context).platformBrightness ==
+                                      Brightness.light
+                                  ? primary
+                                  : caribbean400)
+                              : Colors.grey,
                         ),
                         Text(
-                          "Results",
-                          style: TextStyle(color: currentTab == 1 ? primary : Colors.grey),
+                          dResults,
+                          style: TextStyle(
+                              color: currentTab == 1
+                              ? (MediaQuery.of(context).platformBrightness ==
+                                      Brightness.light
+                                  ? primary
+                                  : caribbean400)
+                              : Colors.grey,),
                         )
                       ],
                     ),
@@ -113,11 +136,22 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Icon(
                           Icons.book,
-                          color: currentTab == 2 ? primary : Colors.grey,
+                          color: currentTab == 2
+                              ? (MediaQuery.of(context).platformBrightness ==
+                                      Brightness.light
+                                  ? primary
+                                  : caribbean400)
+                              : Colors.grey,
                         ),
                         Text(
-                          "Info",
-                          style: TextStyle(color: currentTab == 2 ? primary : Colors.grey),
+                          dInfo,
+                          style: TextStyle(
+                              color: currentTab == 2
+                              ? (MediaQuery.of(context).platformBrightness ==
+                                      Brightness.light
+                                  ? primary
+                                  : caribbean400)
+                              : Colors.grey),
                         )
                       ],
                     ),
@@ -135,11 +169,22 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Icon(
                           Icons.settings_rounded,
-                          color: currentTab == 3 ? primary : Colors.grey,
+                          color: currentTab == 3
+                              ? (MediaQuery.of(context).platformBrightness ==
+                                      Brightness.light
+                                  ? primary
+                                  : caribbean400)
+                              : Colors.grey,
                         ),
                         Text(
-                          "Settings",
-                          style: TextStyle(color: currentTab == 3 ? primary : Colors.grey),
+                          dSettings,
+                          style: TextStyle(
+                              color: currentTab == 3
+                              ? (MediaQuery.of(context).platformBrightness ==
+                                      Brightness.light
+                                  ? primary
+                                  : caribbean400)
+                              : Colors.grey,),
                         )
                       ],
                     ),
