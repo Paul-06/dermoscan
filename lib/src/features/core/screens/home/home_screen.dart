@@ -1,9 +1,11 @@
 import 'package:dermoscan/src/constants/colors.dart';
 import 'package:dermoscan/src/constants/text_strings.dart';
+import 'package:dermoscan/src/features/core/screens/home/camera_button.dart';
 import 'package:dermoscan/src/features/core/screens/pages/home_page.dart';
 import 'package:dermoscan/src/features/core/screens/pages/info_page.dart';
 import 'package:dermoscan/src/features/core/screens/pages/results_page.dart';
 import 'package:dermoscan/src/features/core/screens/pages/settings_page.dart';
+import 'package:dermoscan/src/utils/theme/widget_themes/bottom_app_bar_theme.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -32,13 +34,9 @@ class _HomeScreenState extends State<HomeScreen> {
         bucket: bucket,
         child: currentPage,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.camera_alt_rounded),
-      ),
+      floatingActionButton: const CameraButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
-        shape: const CircularNotchedRectangle(),
         notchMargin: 10,
         child: SizedBox(
           height: 60,
@@ -62,23 +60,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Icon(
                           Icons.home_rounded,
-                          color: currentTab == 0
-                              ? (MediaQuery.of(context).platformBrightness ==
-                                      Brightness.light
-                                  ? primary
-                                  : caribbean400)
-                              : Colors.grey,
+                          color: DBottomAppBarTheme.getTabIconColor(context, currentTab == 0),
                         ),
                         Text(
                           dHome,
-                          style: TextStyle(
-                              color: currentTab == 0
-                              ? (MediaQuery.of(context).platformBrightness ==
-                                      Brightness.light
-                                  ? primary
-                                  : caribbean400)
-                              : Colors.grey),
-                        )
+                          style: DBottomAppBarTheme.getTabTextStyle(context, currentTab == 0)
+                        ),
                       ],
                     ),
                   ),
@@ -95,23 +82,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Icon(
                           Icons.favorite_rounded,
-                          color: currentTab == 1
-                              ? (MediaQuery.of(context).platformBrightness ==
-                                      Brightness.light
-                                  ? primary
-                                  : caribbean400)
-                              : Colors.grey,
+                          color: DBottomAppBarTheme.getTabIconColor(context, currentTab == 1),
                         ),
                         Text(
-                          dResults,
-                          style: TextStyle(
-                              color: currentTab == 1
-                              ? (MediaQuery.of(context).platformBrightness ==
-                                      Brightness.light
-                                  ? primary
-                                  : caribbean400)
-                              : Colors.grey,),
-                        )
+                            dResults,
+                            style: DBottomAppBarTheme.getTabTextStyle(context, currentTab == 1)
+                        ),
                       ],
                     ),
                   ),
@@ -135,24 +111,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.book,
-                          color: currentTab == 2
-                              ? (MediaQuery.of(context).platformBrightness ==
-                                      Brightness.light
-                                  ? primary
-                                  : caribbean400)
-                              : Colors.grey,
+                          Icons.book_rounded,
+                          color: DBottomAppBarTheme.getTabIconColor(context, currentTab == 2),
                         ),
                         Text(
-                          dInfo,
-                          style: TextStyle(
-                              color: currentTab == 2
-                              ? (MediaQuery.of(context).platformBrightness ==
-                                      Brightness.light
-                                  ? primary
-                                  : caribbean400)
-                              : Colors.grey),
-                        )
+                            dInfo,
+                            style: DBottomAppBarTheme.getTabTextStyle(context, currentTab == 2)
+                        ),
                       ],
                     ),
                   ),
@@ -169,23 +134,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Icon(
                           Icons.settings_rounded,
-                          color: currentTab == 3
-                              ? (MediaQuery.of(context).platformBrightness ==
-                                      Brightness.light
-                                  ? primary
-                                  : caribbean400)
-                              : Colors.grey,
+                          color: DBottomAppBarTheme.getTabIconColor(context, currentTab == 3),
                         ),
                         Text(
-                          dSettings,
-                          style: TextStyle(
-                              color: currentTab == 3
-                              ? (MediaQuery.of(context).platformBrightness ==
-                                      Brightness.light
-                                  ? primary
-                                  : caribbean400)
-                              : Colors.grey,),
-                        )
+                            dSettings,
+                            style: DBottomAppBarTheme.getTabTextStyle(context, currentTab == 3)
+                        ),
                       ],
                     ),
                   ),

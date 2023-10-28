@@ -15,9 +15,6 @@ class DTextTheme {
     bodyLarge: GoogleFonts.poppins(
       color: Colors.black54 // bodyLarge => 16
     ),
-    bodyMedium: GoogleFonts.poppins(
-      color: primary // bodyMedium => 14
-    ),
     titleLarge: GoogleFonts.montserrat(
       color: dWhiteColor, // titleLarge => 16
       fontWeight: FontWeight.bold
@@ -34,9 +31,6 @@ class DTextTheme {
     ),
     bodyLarge: GoogleFonts.poppins(
       color: Colors.white60
-    ),
-    bodyMedium: GoogleFonts.poppins(
-      color: caribbean400
     ),
     titleLarge: GoogleFonts.montserrat(
         color: caribbean950,

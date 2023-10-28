@@ -1,20 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:dermoscan/src/constants/colors.dart';
 
-/* -- Light & Dark Bottom App Bar Themes -- */
 class DBottomAppBarTheme {
-  DBottomAppBarTheme._(); // Para evitar la creacion de instancias
+  DBottomAppBarTheme._(); // Para evitar la creación de instancias
 
-  /* -- Light Theme -- */
-  static BottomAppBarTheme lightBottomBottomAppBarTheme = 
-  const BottomAppBarTheme(
+  static Color getTabIconColor(BuildContext context, bool isSelected) {
+    Brightness brightness = MediaQuery.of(context).platformBrightness;
+    Color primaryColor = brightness == Brightness.light ? primary : caribbean400;
+    Color secondaryColor = Colors.grey;
+
+    return isSelected ? primaryColor : secondaryColor;
+  }
+
+  static TextStyle getTabTextStyle(BuildContext context, bool isSelected) {
+    Brightness brightness = MediaQuery.of(context).platformBrightness;
+    Color primaryColor = brightness == Brightness.light ? primary : caribbean400;
+    Color secondaryColor = Colors.grey;
+
+    final fontFamily = Theme.of(context).textTheme.bodyLarge?.fontFamily;
+
+    return TextStyle(
+      color: isSelected ? primaryColor : secondaryColor,
+      fontFamily: fontFamily,
+    );
+  }
+
+  static BottomAppBarTheme lightBottomBottomAppBarTheme = const BottomAppBarTheme(
     color: Colors.white,
-    shape: CircularNotchedRectangle()
+    shape: CircularNotchedRectangle(),
   );
 
-  /* -- Dark Theme -- */
-  static BottomAppBarTheme darkBottomBottomAppBarTheme = 
-  const BottomAppBarTheme(
-    color: Color(0xFF121212),
-    shape: CircularNotchedRectangle()
+  static BottomAppBarTheme darkBottomBottomAppBarTheme = const BottomAppBarTheme(
+    color: Colors.black26,
+    shape: CircularNotchedRectangle(),
   );
 }
