@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
         automaticallyImplyLeading: false,
       ),
       body: const Center(
-        child: Text("Home Page", style: TextStyle(fontSize: 40)),
+        child: Text("Feliz cumpleaños :3", style: TextStyle(fontSize: 40)),
       ),
     );
   }

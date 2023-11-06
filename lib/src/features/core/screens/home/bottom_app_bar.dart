@@ -27,7 +27,7 @@ class DBottomAppBar extends StatelessWidget {
             _buildTab(1, Icons.favorite_rounded, dResults),
             const Spacer(),
             _buildTab(2, Icons.book_rounded, dInfo),
-            _buildTab(3, Icons.settings_rounded, dSettings),
+            _buildTab(3, Icons.person_rounded, dProfile),
           ],
         ),
       ),

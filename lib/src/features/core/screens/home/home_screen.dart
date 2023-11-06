@@ -1,5 +1,5 @@
 import 'package:dermoscan/src/features/core/screens/home/bottom_app_bar.dart';
-import 'package:dermoscan/src/features/core/screens/home/camera_button.dart';
+import 'package:dermoscan/src/features/core/screens/home/pick_image.dart';
 import 'package:dermoscan/src/features/core/screens/pages/home_page.dart';
 import 'package:dermoscan/src/features/core/screens/pages/info_page.dart';
 import 'package:dermoscan/src/features/core/screens/pages/results_page.dart';
@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
         bucket: bucket,
         child: currentPage,
       ),
-      floatingActionButton: const CameraButton(),
+      floatingActionButton: const PickImage(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: DBottomAppBar(
         currentTab: currentTab,

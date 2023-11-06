@@ -29,4 +29,8 @@ const dAlreadyHaveAnAccount = "¿Ya tienes una cuenta? ";
 const dHome = "Home";
 const dResults = "Results";
 const dInfo = "Info";
-const dSettings = "Settings";
+const dProfile = "Profile";
+
+// Modal Bottom Sheet
+const dFirstOption = "Galería";
+const dSecondOption = "Cámara";

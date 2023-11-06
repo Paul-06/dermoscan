@@ -13,7 +13,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(dSettings, style: Theme.of(context).textTheme.titleLarge,),
+        title: Text(dProfile, style: Theme.of(context).textTheme.titleLarge,),
         automaticallyImplyLeading: false,
       ),
       body: const Center(
