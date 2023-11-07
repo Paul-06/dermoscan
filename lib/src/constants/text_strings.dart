@@ -26,11 +26,28 @@ const dSignUpDescripction =
 const dAlreadyHaveAnAccount = "¿Ya tienes una cuenta? ";
 
 // Bottom App Bar
-const dHome = "Home";
-const dResults = "Results";
-const dInfo = "Info";
-const dProfile = "Profile";
+const dHome = "Inicio";
+const dResults = "Estado";
+const dInfo = "Notas";
+const dProfile = "Perfil";
 
 // Modal Bottom Sheet
 const dFirstOption = "Galería";
 const dSecondOption = "Cámara";
+
+// Profile page - Text
+const String dEditProfile = "Editar perfil";
+const String dLogoutDialogHeading = "Cerrar sesión";
+const String dProfileHeading = "Jean Paul Vasquez";
+const String dProfileSubHeading = "paulvasquez816@gmail.com";
+
+// Profile menu
+const String dMenu1 = "Configuración";
+const String dMenu2 = "Historial de análisis";
+const String dMenu3 = "Gestión de usuarios"; // Reemplazo => Consejos de Salud
+const String dMenu4 = "Información";
+
+// Update Profile Screen - Text
+const String tDelete = "Eliminar";
+const String tJoined = "Se unió el";
+const String tJoinedAt = " 06 de noviembre del 2023";

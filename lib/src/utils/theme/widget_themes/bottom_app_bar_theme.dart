@@ -6,7 +6,7 @@ class DBottomAppBarTheme {
 
   static Color getTabIconColor(BuildContext context, bool isSelected) {
     Brightness brightness = MediaQuery.of(context).platformBrightness;
-    Color primaryColor = brightness == Brightness.light ? primary : caribbean400;
+    Color primaryColor = brightness == Brightness.light ? dPrimaryColor : caribbean400;
     Color secondaryColor = Colors.grey;
 
     return isSelected ? primaryColor : secondaryColor;
@@ -14,7 +14,7 @@ class DBottomAppBarTheme {
 
   static TextStyle getTabTextStyle(BuildContext context, bool isSelected) {
     Brightness brightness = MediaQuery.of(context).platformBrightness;
-    Color primaryColor = brightness == Brightness.light ? primary : caribbean400;
+    Color primaryColor = brightness == Brightness.light ? dPrimaryColor : caribbean400;
     Color secondaryColor = Colors.grey;
 
     final fontFamily = Theme.of(context).textTheme.bodyLarge?.fontFamily;

@@ -12,8 +12,8 @@ class DElevatedButtonTheme {
       elevation: 0,
       shape: const RoundedRectangleBorder(),
       foregroundColor: dWhiteColor, // color de fuente
-      backgroundColor: primary, // color de fondo
-      side: const BorderSide(color: primary), // color de borde
+      backgroundColor: dPrimaryColor, // color de fondo
+      side: const BorderSide(color: dPrimaryColor), // color de borde
       padding: const EdgeInsets.symmetric(vertical: dButtonHeight)
     ),
   );
@@ -25,7 +25,7 @@ class DElevatedButtonTheme {
       shape: const RoundedRectangleBorder(),
       foregroundColor: caribbean950, // color de fuente
       backgroundColor: caribbean400, // color de fondo
-      side: const BorderSide(color: primary), // color de borde
+      side: const BorderSide(color: dPrimaryColor), // color de borde
       padding: const EdgeInsets.symmetric(vertical: dButtonHeight)
     )
   );

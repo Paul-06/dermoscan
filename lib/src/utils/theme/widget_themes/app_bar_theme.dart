@@ -8,7 +8,7 @@ class DAppBarTheme {
   /* -- Light Theme -- */
   static AppBarTheme lightAppBarTheme = const AppBarTheme(
     centerTitle: true,
-    backgroundColor: primary,
+    backgroundColor: dPrimaryColor,
   );
 
   /* -- Dark Theme -- */

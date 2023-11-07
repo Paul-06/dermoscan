@@ -3,7 +3,7 @@ import 'package:dermoscan/src/features/core/screens/home/pick_image.dart';
 import 'package:dermoscan/src/features/core/screens/pages/home_page.dart';
 import 'package:dermoscan/src/features/core/screens/pages/info_page.dart';
 import 'package:dermoscan/src/features/core/screens/pages/results_page.dart';
-import 'package:dermoscan/src/features/core/screens/pages/settings_page.dart';
+import 'package:dermoscan/src/features/core/screens/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const HomePage(),
     const ResultsPage(),
     const InfoPage(),
-    const SettingsPage()
+    const ProfilePage()
   ];
 
   final PageStorageBucket bucket = PageStorageBucket();

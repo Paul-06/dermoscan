@@ -8,7 +8,7 @@ class DFloatingActionButton {
   /* -- Light Theme -- */
   static FloatingActionButtonThemeData lightFloatingActionButtonTheme = 
   const FloatingActionButtonThemeData(
-    backgroundColor: primary,
+    backgroundColor: dPrimaryColor,
     foregroundColor: dWhiteColor,
     elevation: 0
   );
