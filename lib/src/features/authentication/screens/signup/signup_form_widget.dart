@@ -1,6 +1,7 @@
 import 'package:dermoscan/src/constants/sizes.dart';
 import 'package:dermoscan/src/constants/text_strings.dart';
 import 'package:dermoscan/src/features/authentication/controllers/sign_up_controller.dart';
+import 'package:dermoscan/src/features/authentication/models/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -56,12 +57,17 @@ class SignUpFormWidget extends StatelessWidget {
               child: ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      SignUpController.instance.registerUser(
-                          controller.email.text.trim(),
-                          controller.password.text.trim()
-                      );
+                      // Step 3 => Get User and Pass it to Controller
+                      final user = UserModel(
+                          email: controller.email.text.trim(),
+                          password: controller.password.text.trim(),
+                          fullName: controller.fullName.text.trim(),
+                          phoneNo: controller.phoneNo.text.trim());
+                      SignUpController.instance.createUser(user);
                     }
                   },
+                  style: ElevatedButton.styleFrom(
+                      side: BorderSide.none, shape: const StadiumBorder()),
                   child: Text(dSignUp.toUpperCase())),
             )
           ],

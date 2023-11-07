@@ -2,6 +2,7 @@ import 'package:dermoscan/src/constants/sizes.dart';
 import 'package:dermoscan/src/constants/text_strings.dart';
 import 'package:dermoscan/src/features/core/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({Key? key}) : super(key: key);
@@ -17,8 +18,7 @@ class LoginForm extends StatelessWidget {
               decoration: const InputDecoration(
                   prefixIcon: Icon(Icons.person_outline_outlined),
                   labelText: dEmail,
-                  hintText: dEmail,
-                  border: OutlineInputBorder()),
+                  hintText: dEmail),
             ),
             const SizedBox(height: dFormHeight - 20),
             TextFormField(
@@ -26,7 +26,6 @@ class LoginForm extends StatelessWidget {
                 prefixIcon: Icon(Icons.fingerprint),
                 labelText: dPassword,
                 hintText: dPassword,
-                border: OutlineInputBorder(),
                 suffixIcon: IconButton(
                     onPressed: null, icon: Icon(Icons.remove_red_eye_sharp)),
               ),
@@ -34,20 +33,17 @@ class LoginForm extends StatelessWidget {
             const SizedBox(height: dFormHeight - 20),
             const Align(
                 alignment: Alignment.centerRight,
-                child: TextButton(
-                    onPressed: null, child: Text(dForgetPassword))),
+                child:
+                    TextButton(onPressed: null, child: Text(dForgetPassword))),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const HomeScreen()
-                      )
-                    );
-                  }, child: Text(dLogin.toUpperCase())),
-            )
+                onPressed: () => Get.to(() => const HomeScreen()),
+                style: ElevatedButton.styleFrom(
+                    side: BorderSide.none, shape: const StadiumBorder()),
+                child: Text(dLogin.toUpperCase()),
+              ),
+            ),
           ],
         ),
       ),
