@@ -1,4 +1,5 @@
 import 'package:dermoscan/src/features/authentication/models/user_model.dart';
+import 'package:dermoscan/src/features/core/screens/home/home_screen.dart';
 import 'package:dermoscan/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:dermoscan/src/repository/user_repository/user_repository.dart';
 import 'package:flutter/material.dart';
@@ -26,5 +27,18 @@ class SignUpController extends GetxController {
 
   Future<void> createUser(UserModel user) async {
     await userRepo.createUser(user);
+  }
+
+  Future<void> registerAndCreateUser(String email, String password,
+      UserModel user) async {
+    String? error = await AuthenticationRepository.instance
+        .createUserWithEmailAndPassword(email, password) as String?;
+    if (error != null) {
+      Get.showSnackbar(GetSnackBar(message: error.toString()));
+    } else {
+      await createUser(user);
+      // Go to HomePage
+      Get.to(() => const HomeScreen());
+  }
   }
 }

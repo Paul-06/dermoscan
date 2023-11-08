@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       defaultTransition: Transition.circularReveal,
       transitionDuration: const Duration(milliseconds: 500),
-      home: const WelcomeScreen(),
+      home: const Scaffold(body: Center(child: CircularProgressIndicator(),),),
     );
   }
 }
