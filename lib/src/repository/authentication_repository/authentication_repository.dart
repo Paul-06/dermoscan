@@ -1,3 +1,4 @@
+import 'package:dermoscan/src/features/authentication/screens/login/login_screen.dart';
 import 'package:dermoscan/src/features/authentication/screens/welcome/welcome_screen.dart';
 import 'package:dermoscan/src/features/core/screens/home/home_screen.dart';
 import 'package:dermoscan/src/repository/authentication_repository/exceptions/sign_up_email_password_failure.dart';
@@ -49,6 +50,9 @@ class AuthenticationRepository extends GetxController {
       String email, String password) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
+      firebaseUser.value != null
+          ? Get.offAll(() => const HomeScreen())
+          : Get.to(() => const LoginScreen());
     } on FirebaseAuthException catch (e) {
     } catch (_) {}
   }

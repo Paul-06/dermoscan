@@ -1,5 +1,4 @@
 import 'package:dermoscan/src/features/authentication/models/user_model.dart';
-import 'package:dermoscan/src/features/core/screens/home/home_screen.dart';
 import 'package:dermoscan/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:dermoscan/src/repository/user_repository/user_repository.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +20,10 @@ class SignUpController extends GetxController {
     String? error = AuthenticationRepository.instance
         .createUserWithEmailAndPassword(email, password) as String?;
     if (error != null) {
-      Get.showSnackbar(GetSnackBar(message: error.toString()));
+      Get.showSnackbar(GetSnackBar(
+        message: error.toString(),
+        margin: const EdgeInsets.all(10),
+      ));
     }
   }
 
@@ -29,16 +31,18 @@ class SignUpController extends GetxController {
     await userRepo.createUser(user);
   }
 
-  Future<void> registerAndCreateUser(String email, String password,
-      UserModel user) async {
-    String? error = await AuthenticationRepository.instance
-        .createUserWithEmailAndPassword(email, password) as String?;
+  Future<void> registerAndCreateUser(UserModel user) async {
+    // Crea el usuario en la base de datos
+    await createUser(user);
+
+    // Registra al usuario con Firebase Authentication
+    String? error = AuthenticationRepository.instance
+        .createUserWithEmailAndPassword(user.email, user.password) as String?;
     if (error != null) {
-      Get.showSnackbar(GetSnackBar(message: error.toString()));
-    } else {
-      await createUser(user);
-      // Go to HomePage
-      Get.to(() => const HomeScreen());
-  }
+      Get.showSnackbar(GetSnackBar(
+        message: error.toString(),
+        margin: const EdgeInsets.all(10),
+      ));
+    }
   }
 }

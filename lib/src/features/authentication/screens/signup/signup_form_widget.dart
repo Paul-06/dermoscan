@@ -4,23 +4,33 @@ import 'package:dermoscan/src/features/authentication/controllers/sign_up_contro
 import 'package:dermoscan/src/features/authentication/models/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
-class SignUpFormWidget extends StatelessWidget {
-  const SignUpFormWidget({Key? key}) : super(key: key);
+class SignUpFormWidget extends StatefulWidget {
+  const SignUpFormWidget({super.key});
+
+  @override
+  State<SignUpFormWidget> createState() => _SignUpFormWidgetState();
+}
+
+class _SignUpFormWidgetState extends State<SignUpFormWidget> {
+  bool isObscure = true;
 
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(SignUpController());
-    final _formKey = GlobalKey<FormState>();
+    final formKey = GlobalKey<FormState>();
 
     return Container(
       padding: const EdgeInsets.symmetric(vertical: dFormHeight - 10),
       child: Form(
-        key: _formKey,
+        key: formKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextFormField(
+              keyboardType: TextInputType.name,
+              textCapitalization: TextCapitalization.words,
               controller: controller.fullName,
               decoration: const InputDecoration(
                 label: Text(dFullName),
@@ -29,6 +39,7 @@ class SignUpFormWidget extends StatelessWidget {
             ),
             const SizedBox(height: dFormHeight - 20),
             TextFormField(
+              keyboardType: TextInputType.emailAddress,
               controller: controller.email,
               decoration: const InputDecoration(
                 label: Text(dEmail),
@@ -37,6 +48,7 @@ class SignUpFormWidget extends StatelessWidget {
             ),
             const SizedBox(height: dFormHeight - 20),
             TextFormField(
+              keyboardType: TextInputType.phone,
               controller: controller.phoneNo,
               decoration: const InputDecoration(
                 label: Text(dPhoneNo),
@@ -45,18 +57,29 @@ class SignUpFormWidget extends StatelessWidget {
             ),
             const SizedBox(height: dFormHeight - 20),
             TextFormField(
+              obscureText: isObscure,
               controller: controller.password,
-              decoration: const InputDecoration(
-                label: Text(dPassword),
-                prefixIcon: Icon(Icons.fingerprint),
+              decoration: InputDecoration(
+                label: const Text(dPassword),
+                prefixIcon: const Icon(Icons.fingerprint),
+                suffixIcon: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      isObscure = !isObscure;
+                    });
+                  },
+                  icon: isObscure == true
+                      ? const Icon(LineAwesomeIcons.eye_slash)
+                      : const Icon(LineAwesomeIcons.eye),
+                ),
               ),
             ),
             const SizedBox(height: dFormHeight - 10),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
+                  onPressed: () async {
+                    if (formKey.currentState!.validate()) {
                       // Step 3 => Get User and Pass it to Controller
                       final user = UserModel(
                           email: controller.email.text.trim(),
@@ -64,7 +87,7 @@ class SignUpFormWidget extends StatelessWidget {
                           fullName: controller.fullName.text.trim(),
                           phoneNo: controller.phoneNo.text.trim());
 
-                      SignUpController.instance.registerAndCreateUser(user.email, user.password, user);
+                      await SignUpController.instance.registerAndCreateUser(user);
                     }
                   },
                   style: ElevatedButton.styleFrom(
@@ -77,3 +100,4 @@ class SignUpFormWidget extends StatelessWidget {
     );
   }
 }
+

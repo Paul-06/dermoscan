@@ -1,3 +1,4 @@
+import 'package:dermoscan/src/features/authentication/models/user_model.dart';
 import 'package:dermoscan/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:dermoscan/src/repository/user_repository/user_repository.dart';
 import 'package:get/get.dart';
@@ -5,6 +6,7 @@ import 'package:get/get.dart';
 class ProfileController extends GetxController {
   static ProfileController get instance => Get.find();
 
+  // Repositories
   final _authRepo = Get.put(AuthenticationRepository());
   final _userRepo = Get.put(UserRepository());
 
@@ -17,5 +19,9 @@ class ProfileController extends GetxController {
     } else {
       Get.snackbar("Error", "Inicia sesión para continuar.");
     }
+  }
+
+  updateRecord(UserModel user) async {
+    await _userRepo.updateUserRecord(user);
   }
 }

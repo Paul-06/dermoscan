@@ -4,6 +4,7 @@ import 'package:dermoscan/src/constants/sizes.dart';
 import 'package:dermoscan/src/constants/text_strings.dart';
 import 'package:dermoscan/src/features/authentication/models/user_model.dart';
 import 'package:dermoscan/src/features/core/controllers/profile_controller.dart';
+import 'package:dermoscan/src/features/core/screens/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
@@ -31,10 +32,18 @@ class UpdateProfileScreen extends StatelessWidget {
           child: FutureBuilder(
             future: controller.getUserData(),
             builder: (context, snapshot) {
-              if(snapshot.connectionState == ConnectionState.done) {
-                if(snapshot.hasData) {
-                  UserModel userData = snapshot.data as UserModel;
-                  return Column( // Wrap this Widget with FutureBuilder
+              if (snapshot.connectionState == ConnectionState.done) {
+                if (snapshot.hasData) {
+                  UserModel user = snapshot.data as UserModel;
+
+                  // Controllers
+                  final email = TextEditingController(text: user.email);
+                  final password = TextEditingController(text: user.password);
+                  final fullName = TextEditingController(text: user.fullName);
+                  final phoneNo = TextEditingController(text: user.phoneNo);
+
+                  return Column(
+                    // Wrap this Widget with FutureBuilder
                     children: [
                       // -- IMAGE with ICON
                       Stack(
@@ -44,7 +53,8 @@ class UpdateProfileScreen extends StatelessWidget {
                             height: 120,
                             child: ClipRRect(
                                 borderRadius: BorderRadius.circular(100),
-                                child: const Image(image: AssetImage(dProfileImage))),
+                                child: const Image(
+                                    image: AssetImage(dProfileImage))),
                           ),
                           Positioned(
                             bottom: 0,
@@ -68,34 +78,36 @@ class UpdateProfileScreen extends StatelessWidget {
                         child: Column(
                           children: [
                             TextFormField(
-                              initialValue: userData.fullName,
+                              controller: fullName,
                               decoration: const InputDecoration(
                                   label: Text(dFullName),
                                   prefixIcon: Icon(LineAwesomeIcons.user)),
                             ),
                             const SizedBox(height: dFormHeight - 20),
                             TextFormField(
-                              initialValue: userData.email,
+                              controller: email,
                               decoration: const InputDecoration(
                                   label: Text(dEmail),
-                                  prefixIcon: Icon(LineAwesomeIcons.envelope_1)),
+                                  prefixIcon:
+                                      Icon(LineAwesomeIcons.envelope_1)),
                             ),
                             const SizedBox(height: dFormHeight - 20),
                             TextFormField(
-                              initialValue: userData.phoneNo,
+                              controller: phoneNo,
                               decoration: const InputDecoration(
                                   label: Text(dPhoneNo),
                                   prefixIcon: Icon(LineAwesomeIcons.phone)),
                             ),
                             const SizedBox(height: dFormHeight - 20),
                             TextFormField(
-                              initialValue: userData.password,
+                              controller: password,
                               obscureText: true,
                               decoration: InputDecoration(
                                 label: const Text(dPassword),
                                 prefixIcon: const Icon(Icons.fingerprint),
                                 suffixIcon: IconButton(
-                                    icon: const Icon(LineAwesomeIcons.eye_slash),
+                                    icon:
+                                        const Icon(LineAwesomeIcons.eye_slash),
                                     onPressed: () {}),
                               ),
                             ),
@@ -105,8 +117,17 @@ class UpdateProfileScreen extends StatelessWidget {
                             SizedBox(
                               width: double.infinity,
                               child: ElevatedButton(
-                                onPressed: () =>
-                                    Get.to(() => const UpdateProfileScreen()),
+                                onPressed: () async {
+                                  final userData = UserModel(
+                                      email: email.text.trim(),
+                                      password: password.text.trim(),
+                                      fullName: fullName.text.trim(),
+                                      phoneNo: phoneNo.text.trim()
+                                  );
+
+                                  await controller.updateRecord(userData);
+                                  Get.to(() => const ProfilePage());
+                                },
                                 style: ElevatedButton.styleFrom(
                                     side: BorderSide.none,
                                     shape: const StadiumBorder()),
@@ -136,7 +157,7 @@ class UpdateProfileScreen extends StatelessWidget {
                                   onPressed: () {},
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor:
-                                      Colors.redAccent.withOpacity(0.1),
+                                          Colors.redAccent.withOpacity(0.1),
                                       elevation: 0,
                                       foregroundColor: Colors.red,
                                       shape: const StadiumBorder(),
@@ -150,7 +171,7 @@ class UpdateProfileScreen extends StatelessWidget {
                       ),
                     ],
                   );
-                } else if(snapshot.hasError) {
+                } else if (snapshot.hasError) {
                   return Center(child: Text(snapshot.error.toString()));
                 } else {
                   return const Center(child: Text("Algo salió mal."));
