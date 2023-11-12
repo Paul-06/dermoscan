@@ -70,8 +70,6 @@ class _LoginFormState extends State<LoginForm> {
                     LogInController.instance.logInUser(email, password);
                   }
                 },
-                style: ElevatedButton.styleFrom(
-                    side: BorderSide.none, shape: const StadiumBorder()),
                 child: Text(dLogin.toUpperCase()),
               ),
             ),

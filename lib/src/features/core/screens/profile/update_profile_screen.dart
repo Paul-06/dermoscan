@@ -128,9 +128,6 @@ class UpdateProfileScreen extends StatelessWidget {
                                   await controller.updateRecord(userData);
                                   Get.to(() => const ProfilePage());
                                 },
-                                style: ElevatedButton.styleFrom(
-                                    side: BorderSide.none,
-                                    shape: const StadiumBorder()),
                                 child: const Text(dEditProfile),
                               ),
                             ),

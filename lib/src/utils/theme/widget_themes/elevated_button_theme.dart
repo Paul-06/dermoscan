@@ -10,10 +10,10 @@ class DElevatedButtonTheme {
   static final lightElevatedButtonTheme = ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       elevation: 0,
-      shape: const RoundedRectangleBorder(),
+      shape: const StadiumBorder(),
       foregroundColor: dWhiteColor, // color de fuente
       backgroundColor: dPrimaryColor, // color de fondo
-      side: const BorderSide(color: dPrimaryColor), // color de borde
+      side: BorderSide.none, // Sin borde
       padding: const EdgeInsets.symmetric(vertical: dButtonHeight)
     ),
   );
@@ -22,10 +22,10 @@ class DElevatedButtonTheme {
   static final darkElevatedButtonTheme = ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       elevation: 0,
-      shape: const RoundedRectangleBorder(),
+      shape: const StadiumBorder(),
       foregroundColor: caribbean950, // color de fuente
       backgroundColor: caribbean400, // color de fondo
-      side: const BorderSide(color: dPrimaryColor), // color de borde
+      side: BorderSide.none, // Sin borde
       padding: const EdgeInsets.symmetric(vertical: dButtonHeight)
     )
   );

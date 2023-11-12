@@ -83,8 +83,6 @@ class _ProfilePageState extends State<ProfilePage> {
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () => Get.to(() => const UpdateProfileScreen()),
-                  style: ElevatedButton.styleFrom(
-                      side: BorderSide.none, shape: const StadiumBorder()),
                   child: const Text(dEditProfile),
                 ),
               ),

@@ -90,8 +90,6 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                       await SignUpController.instance.registerAndCreateUser(user);
                     }
                   },
-                  style: ElevatedButton.styleFrom(
-                      side: BorderSide.none, shape: const StadiumBorder()),
                   child: Text(dSignUp.toUpperCase())),
             )
           ],
