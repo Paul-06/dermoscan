@@ -16,15 +16,18 @@ class SignUpController extends GetxController {
   final phoneNo = TextEditingController();
 
   // Call this function from Design & it will do the rest
-  void registerUser(String email, String password) {
-    String? error = AuthenticationRepository.instance
+  Future<bool> registerUser(String email, String password) async {
+    String? error = await AuthenticationRepository.instance
         .createUserWithEmailAndPassword(email, password) as String?;
+
     if (error != null) {
       Get.showSnackbar(GetSnackBar(
         message: error.toString(),
         margin: const EdgeInsets.all(10),
       ));
+      return false; // Indica que la creación de usuario falló
     }
+    return true; // Indica que la creación de usuario tuvo éxito
   }
 
   Future<void> createUser(UserModel user) async {
@@ -32,17 +35,11 @@ class SignUpController extends GetxController {
   }
 
   Future<void> registerAndCreateUser(UserModel user) async {
-    // Crea el usuario en la base de datos
-    await createUser(user);
+    bool registrationSuccess = await registerUser(user.email, user.password);
 
-    // Registra al usuario con Firebase Authentication
-    String? error = AuthenticationRepository.instance
-        .createUserWithEmailAndPassword(user.email, user.password) as String?;
-    if (error != null) {
-      Get.showSnackbar(GetSnackBar(
-        message: error.toString(),
-        margin: const EdgeInsets.all(10),
-      ));
+    if (registrationSuccess) {
+      // Llamamos a createUser solo si registerUser fue exitoso
+      await createUser(user);
     }
   }
 }

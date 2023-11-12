@@ -1,8 +1,11 @@
+import 'package:dermoscan/src/common_widgets/custom_snack_bar.dart';
 import 'package:dermoscan/src/features/authentication/screens/login/login_screen.dart';
 import 'package:dermoscan/src/features/authentication/screens/welcome/welcome_screen.dart';
 import 'package:dermoscan/src/features/core/screens/home/home_screen.dart';
+import 'package:dermoscan/src/repository/authentication_repository/exceptions/sign_in_email_password_failure.dart';
 import 'package:dermoscan/src/repository/authentication_repository/exceptions/sign_up_email_password_failure.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AuthenticationRepository extends GetxController {
@@ -37,10 +40,12 @@ class AuthenticationRepository extends GetxController {
           : Get.to(() => const WelcomeScreen());
     } on FirebaseAuthException catch (e) {
       final ex = SignUpWithEmailAndPasswordFailure.code(e.code);
+      CustomSnackBar.show("Advertencia", ex.message, Colors.orange);
       print('FIREBASE AUTH EXCEPTION - ${ex.message}');
       throw ex;
     } catch (_) {
       const ex = SignUpWithEmailAndPasswordFailure();
+      CustomSnackBar.show("Error", ex.message, Colors.red);
       print('EXCEPTION - ${ex.message}');
       throw ex;
     }
@@ -52,9 +57,18 @@ class AuthenticationRepository extends GetxController {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
       firebaseUser.value != null
           ? Get.offAll(() => const HomeScreen())
-          : Get.to(() => const LoginScreen());
+          : Get.to(() => const WelcomeScreen());
     } on FirebaseAuthException catch (e) {
-    } catch (_) {}
+      final ex = SignInWithEmailAndPasswordFailure.code(e.code);
+      CustomSnackBar.show("Advertencia", ex.message, Colors.orange);
+      print('FIREBASE AUTH EXCEPTION - ${ex.message}');
+      throw ex;
+    } catch (_) {
+      const ex = SignInWithEmailAndPasswordFailure();
+      CustomSnackBar.show("Error", ex.message, Colors.red);
+      print('EXCEPTION - ${ex.message}');
+      throw ex;
+    }
   }
 
   Future<void> logout() async => await _auth.signOut();
