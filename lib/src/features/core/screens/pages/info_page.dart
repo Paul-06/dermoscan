@@ -21,14 +21,17 @@ class _InfoPageState extends State<InfoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(dInfo, style: Theme.of(context).textTheme.titleLarge,),
+        title: Text(
+          dInfo,
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
         automaticallyImplyLeading: false,
       ),
       body: ListView(
         children: [
           _buildInfoCard(
               "Melanoma", 'assets/images/melanoma.jpg', MelanomaPage()),
-          _buildInfoCard("Acne", 'assets/images/acne.jpg', AcnePage()),
+          _buildInfoCard("Acné", 'assets/images/acne.jpg', AcnePage()),
           _buildInfoCard(
               "Psoriasis", 'assets/images/psoriasis.jpg', PsoriasisPage()),
           _buildInfoCard("Herpes", 'assets/images/herpes.jpg', HerpesPage()),
@@ -63,7 +66,13 @@ class _InfoPageState extends State<InfoPage> {
             ),
             Expanded(
               child: ListTile(
-                title: Text(title),
+                title: Text(
+                  title,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyLarge
+                      ?.copyWith(fontSize: 16),
+                ),
                 // Add more details or actions if needed
               ),
             ),
@@ -73,8 +82,10 @@ class _InfoPageState extends State<InfoPage> {
                 width: 33, // Ajusta el ancho según tus necesidades
                 child: FloatingActionButton(
                   onPressed: () => Get.to(() => page),
-                  backgroundColor: Colors.grey.withOpacity(0.1), // Gris más claro
-                  mini: true, // Hace que el botón sea más pequeño
+                  backgroundColor: Colors.grey.withOpacity(0.1),
+                  // Gris más claro
+                  mini: true,
+                  // Hace que el botón sea más pequeño
                   child: const Icon(
                     LineAwesomeIcons.angle_right,
                     size: 20,
