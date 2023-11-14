@@ -42,6 +42,8 @@ dependencies:
   get: ^4.6.6
   line_awesome_flutter: ^2.0.0
   cloud_firestore: ^4.12.2
+  tflite_flutter: ^0.8.0
+  tflite_flutter_helper: ^0.2.0
 
 dev_dependencies:
   flutter_test:
@@ -73,6 +75,8 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/model_unquant.tflite
+    - assets/labels.txt
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

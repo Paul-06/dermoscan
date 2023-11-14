@@ -1,9 +1,14 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:dermoscan/src/constants/text_strings.dart';
+import 'package:dermoscan/src/features/core/screens/pages/results_page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:tflite_flutter/tflite_flutter.dart';
+import 'package:tflite_flutter_helper/tflite_flutter_helper.dart';
 
 class PickImage extends StatefulWidget {
   const PickImage({super.key});
@@ -12,9 +17,11 @@ class PickImage extends StatefulWidget {
   State<PickImage> createState() => _PickImageState();
 }
 
+File imageURI = File('');
+String result = '';
+String path = '';
+
 class _PickImageState extends State<PickImage> {
-  Uint8List? _image;
-  File? selectedIMage;
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
@@ -53,7 +60,10 @@ class _PickImageState extends State<PickImage> {
                             Text(
                               dFirstOption,
                               style: TextStyle(
-                                fontFamily: Theme.of(context).textTheme.bodyLarge?.fontFamily,
+                                fontFamily: Theme.of(context)
+                                    .textTheme
+                                    .bodyLarge
+                                    ?.fontFamily,
                               ),
                             )
                           ],
@@ -76,7 +86,10 @@ class _PickImageState extends State<PickImage> {
                             Text(
                               dSecondOption,
                               style: TextStyle(
-                                fontFamily: Theme.of(context).textTheme.bodyLarge?.fontFamily,
+                                fontFamily: Theme.of(context)
+                                    .textTheme
+                                    .bodyLarge
+                                    ?.fontFamily,
                               ),
                             )
                           ],
@@ -93,16 +106,20 @@ class _PickImageState extends State<PickImage> {
 
   // Gallery
   Future _pickImageFromGallery() async {
-    final returnImage =
+    var returnImage =
         await ImagePicker().pickImage(source: ImageSource.gallery);
     if (returnImage == null) return;
 
+    File file = File(returnImage.path);
+
     if (context.mounted) {
       setState(() {
-        selectedIMage = File(returnImage.path);
-        _image = File(returnImage.path).readAsBytesSync();
+        imageURI = file;
+        path = returnImage.path;
+        classifyImage();
       });
-      Navigator.of(context).pop(); // close the model sheet
+      Get.to(() => ResultsPage(
+          imageURI: imageURI, result: result)); // close the model sheet
 
       // Como posible solucion para el envio de la imagen a la pagina
       // de resultados es que sea un parametro para la clase ResultsPage
@@ -111,16 +128,76 @@ class _PickImageState extends State<PickImage> {
 
   // Camera
   Future _pickImageFromCamera() async {
-    final returnImage =
-        await ImagePicker().pickImage(source: ImageSource.camera);
+    var returnImage = await ImagePicker().pickImage(source: ImageSource.camera);
     if (returnImage == null) return;
+
+    File file = File(returnImage.path);
 
     if (context.mounted) {
       setState(() {
-        selectedIMage = File(returnImage.path);
-        _image = File(returnImage.path).readAsBytesSync();
+        imageURI = file;
+        path = returnImage.path;
+        classifyImage();
       });
-      Navigator.of(context).pop();
+      Get.to(() => ResultsPage(imageURI: imageURI, result: result));
     }
+  }
+
+  Future classifyImage() async {
+    debugPrint('start model.....');
+
+    final interpreterOptions = InterpreterOptions();
+    final interpreter = await Interpreter.fromAsset(
+      "model_unquant.tflite",
+      options: interpreterOptions,
+    );
+
+    debugPrint('load success :');
+
+    var imageProcessor = ImageProcessorBuilder()
+        .add(ResizeOp(224, 224, ResizeMethod.NEAREST_NEIGHBOUR))
+        .add(NormalizeOp(127.5, 127.5))
+        .build();
+
+    var tensorImage = TensorImage.fromFile(File(path));
+    tensorImage = imageProcessor.process(tensorImage);
+
+    var outputShape = interpreter.getOutputTensor(0).shape;
+    var outputType = interpreter.getOutputTensor(0).type;
+
+    var outputBuffer = TensorBuffer.createFixedSize(outputShape, outputType);
+
+    interpreter.run(tensorImage.buffer, outputBuffer.getBuffer());
+
+    // Define las etiquetas
+    List<String> labels = [
+      'Carcinoma intraepitelial / Queratosis actínica',
+      'Carcinoma de células basales',
+      'Queratosis benigna',
+      'Dermatofibroma',
+      'Melanoma',
+      'Nevos melanocíticos',
+      'Lesiones vasculares'
+    ];
+
+    // Obtén el índice del resultado más alto.
+    final highestScoreIndex = outputBuffer
+        .getDoubleList()
+        .indexWhere((x) => x == outputBuffer.getDoubleList().reduce(max));
+
+    debugPrint('Enfermedad: $highestScoreIndex');
+    // Busca la etiqueta correspondiente.
+    final disease = labels[highestScoreIndex];
+
+    debugPrint('result: $disease');
+
+    debugPrint('output:$outputBuffer');
+
+    setState(() {
+      result = disease;
+    });
+
+    debugPrint('result:$result');
+    debugPrint('end build model !');
   }
 }

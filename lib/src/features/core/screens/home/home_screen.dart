@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int currentTab = 0;
   final List<Widget> pages = [
     const HomePage(),
-    const ResultsPage(),
+    const ResultsPage(imageURI: null, result: null),
     const InfoPage(),
     const ProfilePage()
   ];
