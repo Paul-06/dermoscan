@@ -37,9 +37,9 @@ const dSecondOption = "Cámara";
 
 // Profile page - Text
 const String dEditProfile = "Editar perfil";
-const String dLogoutDialogHeading = "Cerrar sesión";
+const String dLogoutDialog = "Cerrar sesión";
 const String dProfileHeading = "Jean Paul Vasquez";
-const String dProfileSubHeading = "paulvasquez816@gmail.com";
+const String dProfileSubHeading = "jeanvasquez123@gmail.com";
 
 // Profile menu
 const String dMenu1 = "Configuración";

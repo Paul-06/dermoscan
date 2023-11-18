@@ -8,8 +8,8 @@ class ResultsPage extends StatefulWidget {
   final String? result;
 
   const ResultsPage({super.key,
-  required this.imageURI,
-  required this.result});
+    required this.imageURI,
+    required this.result});
 
   @override
   State<ResultsPage> createState() => _ResultsPageState();
@@ -23,16 +23,31 @@ class _ResultsPageState extends State<ResultsPage> {
         title: Text(dResults, style: Theme.of(context).textTheme.titleLarge,),
         automaticallyImplyLeading: false,
       ),
-        body: Center(
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  widget.imageURI == null
-                      ? const Text('No ha seleccionado una imagen.')
-                      : Image.file(widget.imageURI!,
-                      width: 224, height: 224, fit: BoxFit.cover),
-                  widget.result == null ? const Text('Resultado') : Text(widget.result!)
-                ])),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            if (widget.imageURI == null) // If imageURI is null, show the message
+              const Text('No ha seleccionado una imagen.')
+            else // If imageURI is not null, show the image, result, and description
+              Column(
+                children: [
+                  Text(widget.result!, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                  const SizedBox(height: 8),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image.file(widget.imageURI!,
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        height: MediaQuery.of(context).size.width * 0.8,
+                        fit: BoxFit.cover),
+                  ),
+                  const SizedBox(height: 16),
+                  const Text("Descripción", style: TextStyle(fontSize: 16)),
+                ],
+              ),
+          ],
+        ),
+      ),
     );
   }
 }

@@ -148,7 +148,7 @@ class _PickImageState extends State<PickImage> {
 
     final interpreterOptions = InterpreterOptions();
     final interpreter = await Interpreter.fromAsset(
-      "model_unquant.tflite",
+      "modelo.tflite",
       options: interpreterOptions,
     );
 
@@ -171,13 +171,11 @@ class _PickImageState extends State<PickImage> {
 
     // Define las etiquetas
     List<String> labels = [
-      'Carcinoma intraepitelial / Queratosis actínica',
-      'Carcinoma de células basales',
-      'Queratosis benigna',
-      'Dermatofibroma',
+      'Acné / Rosacea',
+      'Eczema',
       'Melanoma',
-      'Nevos melanocíticos',
-      'Lesiones vasculares'
+      'Psoriasis',
+      'Queratosis'
     ];
 
     // Obtén el índice del resultado más alto.

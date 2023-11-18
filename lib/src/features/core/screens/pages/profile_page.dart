@@ -109,7 +109,7 @@ class _ProfilePageState extends State<ProfilePage> {
               const Divider(),
               const SizedBox(height: 10),
               ProfileMenuWidget(
-                  title: dLogoutDialogHeading,
+                  title: dLogoutDialog,
                   icon: LineAwesomeIcons.alternate_sign_out,
                   textColor: Colors.red,
                   endIcon: false,

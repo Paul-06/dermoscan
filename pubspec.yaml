@@ -75,8 +75,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
-    - assets/model_unquant.tflite
-    - assets/labels.txt
+    - assets/modelo.tflite
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
