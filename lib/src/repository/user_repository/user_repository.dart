@@ -25,7 +25,7 @@ class UserRepository extends GetxController {
   }
 
   // Fetch Data
-  // Step 2: Fetch All Users or User Details
+  // Step 2: Fetch User Details
   Future<UserModel> getUserDetails(String email) async {
     final snapshot =
         await _db.collection("Users").where("Email", isEqualTo: email).get();

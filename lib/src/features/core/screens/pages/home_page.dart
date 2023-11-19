@@ -1,6 +1,11 @@
 import 'package:dermoscan/src/constants/colors.dart';
+import 'package:dermoscan/src/features/authentication/models/user_model.dart';
+import 'package:dermoscan/src/features/core/controllers/profile_controller.dart';
+import 'package:dermoscan/src/features/core/screens/home/pick_image.dart';
 import 'package:dermoscan/src/features/core/screens/pages/category_card.dart';
+import 'package:dermoscan/src/features/core/screens/pages/info_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -10,6 +15,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final ScrollController _scrollController = ScrollController();
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
@@ -19,19 +32,8 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: Stack(
         children: [
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: ClipPath(
-              clipper: RPSCustomPainter(),
-              child: Container(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
-                color: backgroundColor, // Color del ClipPath
-                // Agrega el resto de tus widgets encima del fondo aquí
-              ),
-            ),
-          ),
           SingleChildScrollView(
+            controller: _scrollController,
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(
@@ -43,7 +45,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   // const SizedBox(height: 5.0), // Espacio entre los textos
                   Text(
-                    'Mayu',
+                    "Mayu",
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                   const SizedBox(height: 15),
@@ -107,9 +109,7 @@ class _HomePageState extends State<HomePage> {
                         horizontal:
                             25), // Ajusta el margen según tus necesidades
                     child: OutlinedButton(
-                      onPressed: () {
-                        // Acciones cuando se presiona el botón
-                      },
+                      onPressed: () => Get.to(() => const InfoPage()),
                       child: Text("Conoce sobre nuestras enfermedades."),
                     ),
                   ),
@@ -119,14 +119,14 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       CategoryCards(
-                          label: 'Image 1',
-                          categoryCards: 'assets/icons/icon1.png'),
+                          label: 'Acné',
+                          categoryCards: 'assets/icons/acne.png'),
                       CategoryCards(
-                          label: 'Image 2',
-                          categoryCards: 'assets/icons/icon2.png'),
+                          label: 'Eczema',
+                          categoryCards: 'assets/icons/eczema.png'),
                       CategoryCards(
-                          label: 'Image 3',
-                          categoryCards: 'assets/icons/icon3.png'),
+                          label: 'Melanoma',
+                          categoryCards: 'assets/icons/melanoma.png'),
                     ],
                   ),
                   const SizedBox(height: 10),
@@ -134,23 +134,34 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       CategoryCards(
-                          label: 'Image 1',
-                          categoryCards: 'assets/icons/icon4.png'),
+                          label: 'Psoriasis',
+                          categoryCards: 'assets/icons/psoriasis.png'),
                       CategoryCards(
-                          label: 'Image 2',
-                          categoryCards: 'assets/icons/icon5.png'),
-                      CategoryCards(
-                          label: 'Image 3',
-                          categoryCards: 'assets/icons/icon6.png'),
+                          label: 'Queratosis',
+                          categoryCards: 'assets/icons/queratosis.png'),
                     ],
                   ),
                 ],
               ),
             ),
           ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            // Figura triangular
+            child: ClipPath(
+              clipper: RPSCustomPainter(_scrollController),
+              child: Container(
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                color: backgroundColor, // Color del ClipPath
+                // Agrega el resto de tus widgets encima del fondo aquí
+              ),
+            ),
+          ),
           Positioned(
             top: MediaQuery.of(context).size.height * 0.1,
             left: MediaQuery.of(context).size.width * 0.5 - 50,
+            // Avatar
             child: ClipRRect(
               borderRadius: BorderRadius.circular(50),
               child: Center(
@@ -171,18 +182,23 @@ class _HomePageState extends State<HomePage> {
 
 // ClipPath (Forma triangular)
 class RPSCustomPainter extends CustomClipper<Path> {
+  final ScrollController scrollController;
+  RPSCustomPainter(this.scrollController);
+
   @override
   Path getClip(Size size) {
     Path path = Path();
 
+    double offset = scrollController.hasClients ? scrollController.offset : 0.0;
+
     // Duplicamos la mitad izquierda de la figura
-    path.moveTo(size.width * -0.011, size.height * -0.003);
-    path.lineTo(size.width * -0.014, size.height * 0.25);
-    path.lineTo(size.width * 0.5, size.height * 0.15);
+    path.moveTo(size.width * -0.011, size.height * -0.003 + offset);
+    path.lineTo(size.width * -0.014, size.height * 0.25 + offset);
+    path.lineTo(size.width * 0.5, size.height * 0.15 + offset);
 
     // Reflejamos la figura sobre el eje y
-    path.lineTo(size.width * 1.014, size.height * 0.25);
-    path.lineTo(size.width * 1.011, size.height * -0.003);
+    path.lineTo(size.width * 1.014, size.height * 0.25 + offset);
+    path.lineTo(size.width * 1.011, size.height * -0.003 + offset);
 
     path.close();
     return path;

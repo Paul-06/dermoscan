@@ -3,7 +3,6 @@ import 'dart:math';
 
 import 'package:dermoscan/src/constants/text_strings.dart';
 import 'package:dermoscan/src/features/core/screens/pages/results_page.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
@@ -20,6 +19,7 @@ class PickImage extends StatefulWidget {
 File imageURI = File('');
 String result = '';
 String path = '';
+int diseaseDetected = 0;
 
 class _PickImageState extends State<PickImage> {
   @override
@@ -119,7 +119,7 @@ class _PickImageState extends State<PickImage> {
         classifyImage();
       });
       Get.to(() => ResultsPage(
-          imageURI: imageURI, result: result)); // close the model sheet
+          imageURI: imageURI, result: result, description: diseaseDetected,)); // close the model sheet
 
       // Como posible solucion para el envio de la imagen a la pagina
       // de resultados es que sea un parametro para la clase ResultsPage
@@ -139,7 +139,7 @@ class _PickImageState extends State<PickImage> {
         path = returnImage.path;
         classifyImage();
       });
-      Get.to(() => ResultsPage(imageURI: imageURI, result: result));
+      Get.to(() => ResultsPage(imageURI: imageURI, result: result, description: diseaseDetected,));
     }
   }
 
@@ -193,6 +193,7 @@ class _PickImageState extends State<PickImage> {
 
     setState(() {
       result = disease;
+      diseaseDetected = highestScoreIndex;
     });
 
     debugPrint('result:$result');
