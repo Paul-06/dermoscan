@@ -144,6 +144,9 @@ class _PickImageState extends State<PickImage> {
   }
 
   Future classifyImage() async {
+    // Modelo de IA
+    // https://colab.research.google.com/drive/1DxrTv6tVkqcUO4fAnBGo1fG_cfgw265y?usp=sharing
+    
     debugPrint('start model.....');
 
     final interpreterOptions = InterpreterOptions();
