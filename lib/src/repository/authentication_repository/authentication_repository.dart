@@ -40,7 +40,7 @@ class AuthenticationRepository extends GetxController {
     } on FirebaseAuthException catch (e) {
       final ex = SignUpWithEmailAndPasswordFailure.code(e.code);
       CustomSnackBar.show("Advertencia", ex.message, Colors.orange);
-      print('FIREBASE AUTH EXCEPTION - ${ex.message}');
+      print('FIREBASE AUTH EXCEPTION - ${e.message}');
       throw ex;
     } catch (_) {
       const ex = SignUpWithEmailAndPasswordFailure();
@@ -60,7 +60,7 @@ class AuthenticationRepository extends GetxController {
     } on FirebaseAuthException catch (e) {
       final ex = SignInWithEmailAndPasswordFailure.code(e.code);
       CustomSnackBar.show("Advertencia", ex.message, Colors.orange);
-      print('FIREBASE AUTH EXCEPTION - ${ex.message}');
+      print('FIREBASE AUTH EXCEPTION - ${e.message}');
       throw ex;
     } catch (_) {
       const ex = SignInWithEmailAndPasswordFailure();

@@ -9,9 +9,9 @@ class SignInWithEmailAndPasswordFailure {
       case 'wrong-password':
         return const SignInWithEmailAndPasswordFailure(
             'La contraseña es incorrecta.');
-      case 'invalid-email':
+      case 'INVALID_LOGIN_CREDENTIALS':
         return const SignInWithEmailAndPasswordFailure(
-            'El correo electrónico no es válido.');
+            'Credenciales inválidas.');
       case 'user-not-found':
         return const SignInWithEmailAndPasswordFailure(
             'No existe ningún usuario con ese correo electrónico.');
