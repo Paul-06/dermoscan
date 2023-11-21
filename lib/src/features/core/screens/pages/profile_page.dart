@@ -5,6 +5,7 @@ import 'package:dermoscan/src/constants/text_strings.dart';
 import 'package:dermoscan/src/features/core/screens/pages/profile_widgets/profile_menu.dart';
 import 'package:dermoscan/src/features/core/screens/profile/update_profile_screen.dart';
 import 'package:dermoscan/src/repository/authentication_repository/authentication_repository.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
@@ -17,6 +18,8 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  final user = FirebaseAuth.instance.currentUser!;
+
   @override
   Widget build(BuildContext context) {
     var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
@@ -73,7 +76,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
               Text(
-                dProfileSubHeading,
+                user.email!,
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
               const SizedBox(
