@@ -51,3 +51,8 @@ const String dMenu4 = "Información";
 const String tDelete = "Eliminar";
 const String tJoined = "Se unió el";
 const String tJoinedAt = " 06 de noviembre del 2023";
+
+// Reset Password Screen
+const  String titleResetPassword = "Olvidé mi contraseña";
+const String resetDescription = "Escribe tu email y te enviaremos un correo para el cambio de contraseña";
+const String resetButton = "Reestablecer contraseña";

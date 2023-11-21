@@ -1,5 +1,4 @@
 import 'package:dermoscan/src/common_widgets/custom_snack_bar.dart';
-import 'package:dermoscan/src/features/authentication/screens/login/login_screen.dart';
 import 'package:dermoscan/src/features/authentication/screens/welcome/welcome_screen.dart';
 import 'package:dermoscan/src/features/core/screens/home/home_screen.dart';
 import 'package:dermoscan/src/repository/authentication_repository/exceptions/sign_in_email_password_failure.dart';
@@ -68,6 +67,15 @@ class AuthenticationRepository extends GetxController {
       CustomSnackBar.show("Error", ex.message, Colors.red);
       print('EXCEPTION - ${ex.message}');
       throw ex;
+    }
+  }
+
+  Future<void> passwordResetWithEmail(String email) async {
+    try {
+      await _auth.sendPasswordResetEmail(email: email);
+      CustomSnackBar.show("¡Enlace enviado!", "Se ha enviado un enlace a tu correo electrónico para restablecer tu contraseña.", Colors.green);
+    } on FirebaseAuthException catch (e) {
+      CustomSnackBar.show("Error", e.message.toString(), Colors.red);
     }
   }
 

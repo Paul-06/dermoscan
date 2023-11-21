@@ -1,6 +1,7 @@
 import 'package:dermoscan/src/constants/sizes.dart';
 import 'package:dermoscan/src/constants/text_strings.dart';
 import 'package:dermoscan/src/features/authentication/controllers/log_in_controller.dart';
+import 'package:dermoscan/src/features/authentication/screens/login/forgot_password.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
@@ -55,13 +56,13 @@ class _LoginFormState extends State<LoginForm> {
               ),
             ),
             const SizedBox(height: dFormHeight - 20),
-            const Align(
+            Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
-                    onPressed: null,
-                    child: Text(
+                    onPressed: () => Get.to(() => const ForgotPassword()),
+                    child: const Text(
                       dForgetPassword,
-                      style: TextStyle(color: Colors.blue),
+                      // style: TextStyle(color: Colors.blue),
                     ))),
             SizedBox(
               width: double.infinity,

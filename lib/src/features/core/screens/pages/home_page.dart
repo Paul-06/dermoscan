@@ -1,7 +1,4 @@
 import 'package:dermoscan/src/constants/colors.dart';
-import 'package:dermoscan/src/features/authentication/models/user_model.dart';
-import 'package:dermoscan/src/features/core/controllers/profile_controller.dart';
-import 'package:dermoscan/src/features/core/screens/home/pick_image.dart';
 import 'package:dermoscan/src/features/core/screens/pages/category_card.dart';
 import 'package:dermoscan/src/features/core/screens/pages/info_page.dart';
 import 'package:flutter/material.dart';

@@ -23,4 +23,9 @@ class LogInController extends GetxController {
       ));
     }
   }
+
+  // Reset password
+  Future resetPassword(String email) async {
+    AuthenticationRepository.instance.passwordResetWithEmail(email);
+  }
 }
