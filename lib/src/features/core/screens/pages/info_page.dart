@@ -1,11 +1,11 @@
 import 'package:dermoscan/src/constants/text_strings.dart';
+import 'package:dermoscan/src/features/core/screens/pages/diseases/eczema_page.dart';
+import 'package:dermoscan/src/features/core/screens/pages/diseases/queratosis_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 import 'diseases/acne_page.dart';
-import 'diseases/alopecia_page.dart';
-import 'diseases/herpes_page.dart';
 import 'diseases/melanoma_page.dart';
 import 'diseases/psoriasis_page.dart';
 
@@ -34,9 +34,9 @@ class _InfoPageState extends State<InfoPage> {
           _buildInfoCard("Acné", 'assets/images/acne.jpg', AcnePage()),
           _buildInfoCard(
               "Psoriasis", 'assets/images/psoriasis.jpg', PsoriasisPage()),
-          _buildInfoCard("Eczema", 'assets/images/eczema.jpg', HerpesPage()),
+          _buildInfoCard("Eczema", 'assets/images/eczema.jpg', EczemaPage()),
           _buildInfoCard(
-              "Queratosis", 'assets/images/queratosis.jpg', AlopeciaPage()),
+              "Queratosis", 'assets/images/queratosis.jpg', QueratosisPage()),
         ],
       ),
     );

@@ -2,34 +2,36 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
-class PsoriasisPage extends StatelessWidget {
+class EczemaPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String Description =
-        "La psoriasis es una enfermedad crónica de la piel que se caracteriza por la formación de placas rojas y escamosas en la piel. Es una afección autoinmune, lo que significa que el sistema inmunológico ataca por error las células sanas de la piel, acelerando el ciclo de crecimiento celular.";
+        "El eczema, también conocido como dermatitis, es una afección inflamatoria de la piel que se caracteriza por la presencia de parches rojos, secos y con comezón. Puede afectar a personas de todas las edades y se manifiesta de diversas formas, desde pequeñas ampollas hasta áreas extensas de piel escamosa y agrietada.";
     String sub1 = "Causas";
     String sub2 = "Síntomas";
     String sub3 = "Precauciones";
     String sub4 = "Tratamiento";
     String causas =
-        "La causa exacta de la psoriasis no se comprende completamente, pero se cree que involucra una combinación de factores genéticos y ambientales. La activación del sistema inmunológico desempeña un papel clave en el desarrollo de esta enfermedad.";
+        "Las causas exactas del eczema no son completamente comprendidas, pero se cree que es el resultado de una combinación de factores genéticos y ambientales. Se ha observado que las personas con antecedentes familiares de condiciones alérgicas o asma tienen un mayor riesgo de desarrollar eczema. Los desencadenantes ambientales incluyen irritantes como detergentes fuertes, contacto con alérgenos, cambios climáticos, estrés emocional y ciertos alimentos.";
     String sintomas =
-        "Los síntomas de la psoriasis pueden variar en severidad y pueden incluir:\n\n"
-        "1. Placas cutáneas: Lesiones rojas y elevadas cubiertas por escamas plateadas.\n"
-        "2. Picazón y dolor: La piel afectada puede ser pruriginosa y dolorosa.\n"
-        "3. Uñas engrosadas o con hoyuelos: La psoriasis puede afectar las uñas, causando cambios en su apariencia.\n"
-        "4. Articulaciones inflamadas: En algunos casos, la psoriasis puede ir acompañada de artritis psoriásica, afectando las articulaciones.";
+        "Los síntomas del eczema pueden variar, pero comúnmente incluyen:\n\n"
+        "1. Piel roja e inflamada.\n"
+        "2. Sequedad y descamación de la piel.\n"
+        "3. Comezón intensa.\n"
+        "4. Formación de ampollas o costras.\n"
+        "5. Engrosamiento de la piel con el tiempo.";
     String precauciones =
-        "Aunque no se puede prevenir completamente la psoriasis, se pueden seguir algunas precauciones para reducir el riesgo de brotes y mejorar la calidad de vida:\n\n"
-        "1. Cuidado de la piel: Mantener la piel bien hidratada y utilizar productos suaves para la piel.\n"
-        "2. Exposición controlada al sol: La exposición moderada al sol puede ayudar, pero es importante evitar quemaduras solares.\n"
-        "3. Usar fotoprotectores físicos (gafas de sol, gorra, camiseta,..) y químicos (crema solar con factor de protección alto)\n"
-        "4. Manejo del estrés: Prácticas como el ejercicio regular y la meditación pueden ayudar a reducir el estrés, que a menudo puede desencadenar brotes de psoriasis.";
+        "Para manejar y prevenir brotes de eczema, se recomiendan las siguientes precauciones:\n\n"
+        "1. Hidratación constante: Mantener la piel bien hidratada con cremas o ungüentos.\n"
+        "2. Evitar irritantes: Evitar detergentes fuertes, productos químicos agresivos y telas ásperas.\n"
+        "3. Controlar alérgenos: Identificar y evitar posibles alérgenos que puedan desencadenar el eczema.\n"
+        "4. Climatización adecuada: Proteger la piel contra temperaturas extremas y cambios climáticos.";
     String tratamiento =
-        "El tratamiento de la psoriasis varía según la gravedad de los síntomas. Algunas opciones incluyen:\n\n"
-        "1. Cremas y ungüentos tópicos: Para reducir la inflamación y la descamación.\n"
-        "2. Medicamentos orales o inyectables: Para casos más graves o resistentes.\n"
-        "3. Tratamientos biológicos: Medicamentos que afectan al sistema inmunológico.";
+        "El tratamiento del eczema puede implicar una combinación de enfoques, y puede incluir:\n\n"
+        "1. Cuidado tópico: Aplicar cremas o ungüentos para aliviar la inflamación y la comezón.\n"
+        "2. Antihistamínicos: Para controlar la picazón y mejorar la calidad del sueño.\n"
+        "3. Corticosteroides: En casos más graves, se pueden recetar corticosteroides tópicos o sistémicos.\n"
+        "4. Inmunomoduladores tópicos: Ayudan a controlar la inflamación.";
 
     return Scaffold(
       appBar: AppBar(
@@ -37,7 +39,7 @@ class PsoriasisPage extends StatelessWidget {
             onPressed: () => Get.back(),
             icon: const Icon(LineAwesomeIcons.angle_left)),
         title: Text(
-          "Psoriasis",
+          "Eczema",
           style: Theme.of(context).textTheme.titleLarge,
         ),
       ),

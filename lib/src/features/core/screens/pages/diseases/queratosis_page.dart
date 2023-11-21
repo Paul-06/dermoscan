@@ -2,34 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
-class PsoriasisPage extends StatelessWidget {
+class QueratosisPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String Description =
-        "La psoriasis es una enfermedad crónica de la piel que se caracteriza por la formación de placas rojas y escamosas en la piel. Es una afección autoinmune, lo que significa que el sistema inmunológico ataca por error las células sanas de la piel, acelerando el ciclo de crecimiento celular.";
+        "El eczema, también conocido como dermatitis, es una afección inflamatoria de la piel que se caracteriza por la presencia de parches rojos, secos y con comezón. Puede afectar a personas de todas las edades y se manifiesta de diversas formas, desde pequeñas ampollas hasta áreas extensas de piel escamosa y agrietada.";
     String sub1 = "Causas";
     String sub2 = "Síntomas";
     String sub3 = "Precauciones";
     String sub4 = "Tratamiento";
     String causas =
-        "La causa exacta de la psoriasis no se comprende completamente, pero se cree que involucra una combinación de factores genéticos y ambientales. La activación del sistema inmunológico desempeña un papel clave en el desarrollo de esta enfermedad.";
+        "La queratosis es una condición cutánea caracterizada por el engrosamiento de la capa externa de la piel debido a la acumulación de queratina. Puede presentarse de diversas formas, como protuberancias ásperas, parches escamosos o áreas engrosadas.";
     String sintomas =
-        "Los síntomas de la psoriasis pueden variar en severidad y pueden incluir:\n\n"
-        "1. Placas cutáneas: Lesiones rojas y elevadas cubiertas por escamas plateadas.\n"
-        "2. Picazón y dolor: La piel afectada puede ser pruriginosa y dolorosa.\n"
-        "3. Uñas engrosadas o con hoyuelos: La psoriasis puede afectar las uñas, causando cambios en su apariencia.\n"
-        "4. Articulaciones inflamadas: En algunos casos, la psoriasis puede ir acompañada de artritis psoriásica, afectando las articulaciones.";
+        "Los síntomas del eczema pueden variar, pero comúnmente incluyen:\n\n"
+        "1. Protuberancias ásperas: En el caso de la queratosis pilaris, se pueden observar pequeñas protuberancias ásperas en la piel, a menudo del tamaño de un grano de arena.\n"
+        "2. Piel engrosada: La piel afectada puede sentirse más gruesa y tener una textura áspera.\n"
+        "3. Enrojecimiento: Algunas formas de queratosis pueden ir acompañadas de enrojecimiento en las áreas afectadas.\n";
     String precauciones =
-        "Aunque no se puede prevenir completamente la psoriasis, se pueden seguir algunas precauciones para reducir el riesgo de brotes y mejorar la calidad de vida:\n\n"
-        "1. Cuidado de la piel: Mantener la piel bien hidratada y utilizar productos suaves para la piel.\n"
-        "2. Exposición controlada al sol: La exposición moderada al sol puede ayudar, pero es importante evitar quemaduras solares.\n"
-        "3. Usar fotoprotectores físicos (gafas de sol, gorra, camiseta,..) y químicos (crema solar con factor de protección alto)\n"
-        "4. Manejo del estrés: Prácticas como el ejercicio regular y la meditación pueden ayudar a reducir el estrés, que a menudo puede desencadenar brotes de psoriasis.";
+        "Para manejar y prevenir brotes de eczema, se recomiendan las siguientes precauciones:\n\n"
+        "1. Hidratación: Mantener la piel bien hidratada es importante para prevenir la sequedad y reducir la acumulación de queratina.\n"
+        "2. Protección solar: Utilizar protector solar para proteger la piel de los efectos dañinos del sol, especialmente si se tiene predisposición a desarrollar queratosis actínica debido a la exposición solar excesiva.\n";
     String tratamiento =
-        "El tratamiento de la psoriasis varía según la gravedad de los síntomas. Algunas opciones incluyen:\n\n"
-        "1. Cremas y ungüentos tópicos: Para reducir la inflamación y la descamación.\n"
-        "2. Medicamentos orales o inyectables: Para casos más graves o resistentes.\n"
-        "3. Tratamientos biológicos: Medicamentos que afectan al sistema inmunológico.";
+        "El tratamiento del eczema puede implicar una combinación de enfoques, y puede incluir:\n\n"
+        "1. Hidratación regular: Aplicar cremas hidratantes y emolientes para mantener la piel suave e hidratada.\n"
+        "2. Exfoliación suave: Utilizar exfoliantes suaves para ayudar a eliminar las células de piel muerta y prevenir la acumulación de queratina.\n"
+        "3. Tratamientos médicos: En casos más graves o persistentes, se pueden recetar medicamentos tópicos que contengan ácido láctico, ácido glicólico o retinoides para mejorar la textura de la piel.\n"
+        "4. Terapia con láser: En algunos casos, se puede considerar la terapia con láser para reducir el enrojecimiento y mejorar la apariencia de la piel afectada.";
 
     return Scaffold(
       appBar: AppBar(
@@ -37,7 +35,7 @@ class PsoriasisPage extends StatelessWidget {
             onPressed: () => Get.back(),
             icon: const Icon(LineAwesomeIcons.angle_left)),
         title: Text(
-          "Psoriasis",
+          "Queratosis",
           style: Theme.of(context).textTheme.titleLarge,
         ),
       ),
