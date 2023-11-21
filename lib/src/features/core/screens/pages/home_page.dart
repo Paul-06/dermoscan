@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   // const SizedBox(height: 5.0), // Espacio entre los textos
                   Text(
-                    "Mayu",
+                    "Flor",
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                   const SizedBox(height: 15),

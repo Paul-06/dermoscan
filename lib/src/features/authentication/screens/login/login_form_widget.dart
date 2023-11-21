@@ -57,8 +57,12 @@ class _LoginFormState extends State<LoginForm> {
             const SizedBox(height: dFormHeight - 20),
             const Align(
                 alignment: Alignment.centerRight,
-                child:
-                    TextButton(onPressed: null, child: Text(dForgetPassword))),
+                child: TextButton(
+                    onPressed: null,
+                    child: Text(
+                      dForgetPassword,
+                      style: TextStyle(color: Colors.blue),
+                    ))),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(

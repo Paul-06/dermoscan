@@ -34,9 +34,9 @@ class _InfoPageState extends State<InfoPage> {
           _buildInfoCard("Acné", 'assets/images/acne.jpg', AcnePage()),
           _buildInfoCard(
               "Psoriasis", 'assets/images/psoriasis.jpg', PsoriasisPage()),
-          _buildInfoCard("Herpes", 'assets/images/herpes.jpg', HerpesPage()),
+          _buildInfoCard("Eczema", 'assets/images/eczema.jpg', HerpesPage()),
           _buildInfoCard(
-              "Alopecia", 'assets/images/alopecia.jpg', AlopeciaPage()),
+              "Queratosis", 'assets/images/queratosis.jpg', AlopeciaPage()),
         ],
       ),
     );
