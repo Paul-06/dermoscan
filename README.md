@@ -1,6 +1,8 @@
 # Dermoscan
 Dermoscan es una aplicación móvil en desarrollo para el reconocimiento de enfermedades de la piel. Esta aplicación utiliza tecnología de reconocimiento visual para ayudar a diagnosticar diversas afecciones cutáneas.
 
+![DermoScan](screenshots/sections.png)
+
 ## Características
 - **Reconocimiento de imágenes**: Analiza fotos de la piel para identificar posibles enfermedades.
 - **Multiplataforma**: Disponible para Android, iOS, Linux, macOS, Windows y web.
