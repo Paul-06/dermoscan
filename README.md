@@ -47,5 +47,19 @@ Las contribuciones son bienvenidas. Por favor, sigue estos pasos para contribuir
 - Haz push a la rama (git push origin feature/nueva-funcionalidad).
 - Abre un Pull Request.
 
+## Capturas del Sistema
+
+### Pantallas de carga y autenticación
+![Pantalla de carga y autenticación](screenshots/authentication_pages.png)
+
+### Pantallas Principales
+![Pantallas Principales](screenshots/mant_empleados.png)
+
+### Apartado de selección de imágenes
+![Pantalla de selección de imágenes](screenshots/pick_image_menu.png)
+
+### Pantalla de Resultado
+![Pantalla de Resultado](screenshots/result.png)
+
 ## Contacto
 Para cualquier pregunta o sugerencia, por favor abre un issue en el repositorio o contácte conmigo.
