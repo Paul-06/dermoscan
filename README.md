@@ -8,9 +8,10 @@ Dermoscan es una aplicación móvil en desarrollo para el reconocimiento de enfe
 
 ## Tecnologías Utilizadas
 - **Flutter**: Framework para desarrollo multiplataforma.
-- **Dart**: Lenguaje de programación principal.
-- **Python**: Lenguaje de programación para tareas específicas.
-- **TensorFlow**: Biblioteca de aprendizaje automático.
+- **Dart**: Lenguaje de programación principal para el desarrollo de la aplicación.
+- **Python**: Para el desarrollo del algoritmo de análisis de imágenes para detectar enfermedades de la piel.
+- **TensorFlow**: Biblioteca de aprendizaje automático, utilizada junto con Python para análisis de imágenes.
+- **Firebase**: Para la autenticación de usuarios.
 
 ## Instalación
 1. Clona el repositorio:
