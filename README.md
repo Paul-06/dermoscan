@@ -30,13 +30,13 @@ Dermoscan es una aplicación móvil en desarrollo para el reconocimiento de enfe
     ```
     
 ## Estructura del Proyecto
-- android/: Archivos específicos para Android.
-- ios/: Archivos específicos para iOS.
-- lib/: Código fuente principal en Dart.
-- assets/: Recursos de la aplicación (imágenes, íconos, etc.).
-- test/: Pruebas unitarias y de integración.
-- web/: Archivos específicos para la versión web.
-- linux/, macos/, windows/: Archivos específicos para cada plataforma.
+- **android/**: Archivos específicos para Android.
+- **ios/**: Archivos específicos para iOS.
+- **lib/**: Código fuente principal en Dart.
+- **assets/**: Recursos de la aplicación (imágenes, íconos, etc.).
+- **test/**: Pruebas unitarias y de integración.
+- **web/**: Archivos específicos para la versión web.
+- **linux/, macos/, windows/**: Archivos específicos para cada plataforma.
 
 ## Contribuciones
 Las contribuciones son bienvenidas. Por favor, sigue estos pasos para contribuir:
@@ -53,7 +53,7 @@ Las contribuciones son bienvenidas. Por favor, sigue estos pasos para contribuir
 ![Pantalla de carga y autenticación](screenshots/authentication_pages.png)
 
 ### Pantallas Principales
-![Pantallas Principales](screenshots/mant_empleados.png)
+![Pantallas Principales](screenshots/main_pages.png)
 
 ### Apartado de selección de imágenes
 ![Pantalla de selección de imágenes](screenshots/pick_image_menu.png)
